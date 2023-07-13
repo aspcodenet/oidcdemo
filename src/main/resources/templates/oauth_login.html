@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="sv"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layouts/layouttemplate"
+      data-theme="light">
+
+
+<th:block layout:fragment="extraHead">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@event-calendar/build@1.5.0/event-calendar.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@event-calendar/build@1.5.0/event-calendar.min.js"></script>
+    <script src="/js/modal.js"></script>
+
+</th:block>
+
+<main layout:fragment="mainContent">
+
+
+    <div class="row-box">
+        <div class="col-boxes-1">
+            <div class="col-table">
+                <div class="table-section">
+                    <div class="header-table">
+                        <h2>Systementor Login</h2>
+                        <!--                        <a href="#">see all</a>-->
+                    </div>
+
+                </div>
+            </div>
+            <h4 style="margin-left: 10px;">Logga in med ett konto från en av dessa</h4>
+
+        </div>
+    </div>
+
+<diV class="content">
+    <div class="cards">
+        <div class="card" th:each="provider : ${providers}" style="display: block">
+            <div class="card-left">
+                <div class="card-icon">
+                    <a th:href="${provider.url}">
+                        <i th:classappend="${provider.image}"> </i></a>
+                </div>
+                <div></div>
+                <div class="card-top-info">
+                    <h4><a th:text="${provider.name}" th:href="${provider.url}">Client</a></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <diV class="content">
+        <div class="col-boxes-2">
+    <div class="card-second">
+        <div class="card-body">
+            <div class="text-top">
+                <h5>Information</h5>
+                <p>
+                    All behörighet i systemet är kopplat till E-postadresser
+                </p>
+                <p>
+                    Vi använder olika s.k identity providers som styrker att användaren besitter aktuell epostaddress
+                </p>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </div>
+</main>
+
+</html>
